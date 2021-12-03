@@ -1,0 +1,24 @@
+server:
+  port: 9002
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      base-path: /olx-login-monitor  
+  endpoint:
+    shutdown:
+      enabled: true
+
+spring:
+   application:
+     name: login-service
+   zipkin:
+      base-url: http://localhost:9411
+   config:
+    import: configserver:http://localhost:8888                 
+  
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
